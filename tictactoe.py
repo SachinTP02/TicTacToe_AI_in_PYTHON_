@@ -24,13 +24,35 @@ def printBoard(board):
     print("------------")
 
     print("   |   |   ")
-    print(" " + board[1] + " | " + board[2] + " | " + board[3] + " " )
+    print(" " + board[4] + " | " + board[5] + " | " + board[6] + " " )
     print("   |   |   ")
     print("------------")
 
     print("   |   |   ")
-    print(" " + board[1] + " | " + board[2] + " | " + board[3] + " " )
+    print(" " + board[7] + " | " + board[8] + " | " + board[9] + " " )
     print("   |   |   ")
+
+def playerMove():
+  run = True
+  while run:
+    move=input("Please select a position to enter the X                         between 1 to 9")
+    try:
+
+      move=int(move)
+      if move>0 and move<10:
+        if IsFreeSpace(move):
+          run = False
+          insertLetter('X',move)
+          printBoard(board)
+        else:
+          print("The position is already occupied")
+      else:
+        print("Please enter a number between 1 and 9")    
+    except:
+      print("Please enter an integer")
+      
+      
     
 printBoard(board)
-print(isWinner(board,' '))
+
+playerMove()
